@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samiya Marium - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-grey: #374151;      /* Deep Slate Grey for headers and structure */
+            --secondary-grey: #4B5563;    /* Cool Grey for body text */
+            --light-grey: #F3F4F6;        /* Subtle backgrounds */
+            --light-blue: #E0F2FE;        /* Very light blue for accents and badges */
+            --accent-blue: #0284C7;       /* Soft sky blue for interactive elements/links */
+            --border-blue: #BAE6FD;       /* Border highlighting */
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: var(--secondary-grey);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: var(--primary-grey);
+            color: var(--white);
+            padding: 40px;
+            border-bottom: 5px solid var(--border-blue);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+        }
+
+        .header-text p {
+            font-size: 1.15rem;
+            color: var(--border-blue);
+            font-weight: 400;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .contact-info p {
+            margin-bottom: 6px;
+        }
+
+        .contact-info a {
+            color: var(--border-blue);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        /* Main Content Layout */
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                text-align: left;
+            }
+            header {
+                padding: 30px;
+            }
+            .content {
+                padding: 30px;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--primary-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--border-blue);
+            padding-bottom: 6px;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .summary-text {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Experience / Education Blocks */
+        .timeline-item {
+            margin-bottom: 25px;
+        }
+
+        .timeline-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .role-title {
+            font-weight: 600;
+            color: var(--primary-grey);
+            font-size: 1.05rem;
+        }
+
+        .duration {
+            font-size: 0.85rem;
+            background-color: var(--light-blue);
+            color: var(--accent-blue);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .institution {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .bullet-list {
+            list-style-type: none;
+            padding-left: 15px;
+        }
+
+        .bullet-list li {
+            position: relative;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: var(--accent-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Sidebar Tags & Badges */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background-color: var(--light-grey);
+            color: var(--primary-grey);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #E2E8F0;
+        }
+
+        .skill-tag.featured {
+            background-color: var(--light-blue);
+            border-color: var(--border-blue);
+            color: var(--accent-blue);
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+            }
+            header {
+                background-color: #374151 !important;
+                color: #fff !important;
+            }
+            .skill-tag {
+                border: 1px solid #94A3B8 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>SAMIYA MARIUM</h1>
+                    <p>Electrical & AI Engineer</p>
+                </div>
+                <div class="contact-info">
+                    <p>📍 Karachi, Pakistan</p>
+                    <p>✉️ <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                    <p>🔗 <a href="https://www.linkedin.com/in/samiya-marium-893192a8/" target="_blank">linkedin.com/in/samiya-marium-893192a8</a></p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <div class="content">
+            <!-- Left Column: Summary, Projects, Education -->
+            <div class="main-column">
+                <section>
+                    <h2>About Me</h2>
+                    <p class="summary-text">
+                        An enthusiastic and analytical Electrical Engineer specializing in Telecommunications and emerging Artificial Intelligence technologies. Armed with an MS from NUST and active training in Generative AI and Agentic AI systems, I combine hardware foundations with modern software capabilities to engineer smart, collaborative, and autonomous tech solutions.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-item-header">
+                            <span class="role-title">Certified Cloud Applied Generative AI Engineer (GenEng)</span>
+                            <span class="duration">Ongoing</span>
+                        </div>
+                        <div class="institution">Governor Sindh IT Initiative (GIACI)</div>
+                        <ul class="bullet-list">
+                            <li>Focusing on Large Language Models (LLMs), Agentic AI development, autonomous systems, and modern AI engineering workflows.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-item-header">
+                            <span class="role-title">MS in Electrical Engineering (Telecommunication)</span>
+                            <span class="duration">Graduated</span>
+                        </div>
+                        <div class="institution">National University of Sciences and Technology (NUST)</div>
+                        <ul class="bullet-list">
+                            <li><strong>Thesis:</strong> Low Latency MAC Protocol for Industrial Wireless Sensor Networks (IWSNs).</li>
+                            <li>Academic projects covering Computer Vision, Digital Signal Processing, and machine learning implementations.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-item-header">
+                            <span class="role-title">BS in Electronics Engineering</span>
+                            <span class="duration">Graduated</span>
+                        </div>
+                        <div class="institution">Sir Syed University of Engineering and Technology (SSUET)</div>
+                        <ul class="bullet-list">
+                            <li>Acquired solid foundation in electronic circuits, system design, and embedded communication architectures.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Academic & Development Projects</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="role-title">Autonomous Agent Design (Agentic AI)</div>
+                        <ul class="bullet-list">
+                            <li>Actively exploring and building autonomous software agents that utilize LLM planning capability, minimizing human supervision to execute multi-step automated tasks.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="role-title">Industrial Wireless Sensor Networks (MS Thesis)</div>
+                        <ul class="bullet-list">
+                            <li>Designed and simulated a specialized Low-Latency MAC protocol aimed at enhancing the performance and response times of critical Industrial IoT node networks.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Skills & Focus Areas -->
+            <div class="sidebar">
+                <section>
+                    <h2>AI & Software Skills</h2>
+                    <div class="skills-container">
+                        <span class="skill-tag featured">Generative AI</span>
+                        <span class="skill-tag featured">Agentic AI</span>
+                        <span class="skill-tag featured">LLMs</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Machine Learning</span>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Engineering Skills</h2>
+                    <div class="skills-container">
+                        <span class="skill-tag">Wireless Sensor Networks</span>
+                        <span class="skill-tag">Low-Latency MAC Protocols</span>
+                        <span class="skill-tag">Telecommunications</span>
+                        <span class="skill-tag">Electronic Circuits</span>
+                        <span class="skill-tag">System Simulation</span>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Interests</h2>
+                    <ul class="bullet-list" style="padding-left: 15px;">
+                        <li style="font-size: 0.9rem;">Autonomous & agent-driven software</li>
+                        <li style="font-size: 0.9rem;">Next-generation wireless networks</li>
+                        <li style="font-size: 0.9rem;">Space Tech and Ground AI collaborations</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
